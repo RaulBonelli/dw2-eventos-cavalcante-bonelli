@@ -1,13 +1,28 @@
-from flask import Flask
+#app.py (monolítico)
+from flask import Flask, render_template, request, redirect
+from controller.evento_controller import evento_bp
 
-# Initialize the Flask application
 app = Flask(__name__)
+app.register_blueprint(evento_bp)
 
-# Define a route for the homepage
-@app.route("/")
-def home():
-    return "Hello, World! Welcome to my Flask app."
-
-# Run the local development server
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+app = Flask (_name__)
+eventos = []
+@app.route("/", methods=["GET", "POST"])
+def index():
+
+    if request.method == "POST":
+        eventos.append({
+        "nome": request.form["nome"],
+        "data": request.form["data"],
+        "local": request.form["local"],
+        })
+        return redirect("/")
+
+
+    
+    return render_template("index.html", eventos = Eventos)
+
