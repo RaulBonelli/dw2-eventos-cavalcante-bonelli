@@ -1,19 +1,27 @@
-<!-- templates/index.html -->
 <!doctype html>
 <html lang="pt-br">
-  <head><meta charset="utf-8"><title>Eventos</title></head>
+  <head>
+    <meta charset="utf-8">
+    <title>Eventos Acadêmicos</title>
+  </head>
   <body>
     <h1>Eventos Acadêmicos</h1>
+
     <form method="post">
-      <input name="nome" placeholder="Nome" required>
-      <input name="data" placeholder="Data" required>
-      <input name="local" placeholder="Local" required>
+      <input name="nome"  placeholder="Nome" required>
+      <input name="data"  placeholder="Data (AAAA-MM-DD)" required>
+      <input name="local" placeholder="Local">
+      <input name="vagas" placeholder="Vagas">
       <button type="submit">Cadastrar</button>
     </form>
+
+    <!-- Os eventos vem do BANCO, nao mais de uma lista em memoria. -->
     <ul>
       {% for e in eventos %}
-        <li>{{ e.nome }} — {{ e.data }} — {{ e.local }}</li>
+        <li>{{ e.id }} — {{ e.nome }} — {{ e.data }} — {{ e.local }} — {{ e.vagas }} vagas</li>
       {% endfor %}
     </ul>
+
+    <p><em>Encerre o servidor e execute novamente: os eventos continuam aqui.</em></p>
   </body>
 </html>
