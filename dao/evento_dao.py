@@ -35,3 +35,15 @@ class EventoDAO:
             evento = Evento(linha[1], linha[2], linha[3], linha[4], id=linha[0])
             eventos.append(evento)
         return eventos
+    @staticmethod
+def atualizar(evento, nome, data, local, vagas):
+    evento.nome = nome
+    evento.data = data
+    evento.local = local
+    evento.vagas = vagas
+    db.session.commit()
+
+@staticmethod
+def buscar_por_id(id):
+    return Evento.query.get(id)
+    

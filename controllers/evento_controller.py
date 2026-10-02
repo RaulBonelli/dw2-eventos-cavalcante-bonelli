@@ -25,3 +25,16 @@ def index():
         return redirect("/")
  
     return render_template("index.html", eventos=EventoDAO.listar())
+    @evento_bp.route("/editar/<int:id>", methods=["GET", "POST"])
+def editar(id):
+    evento = EventoDAO.buscar_por_id(id)
+    if request.method == "POST":
+        EventoDAO.atualizar(
+            evento,
+            request.form["nome"],
+            request.form["data"],
+            request.form["local"],
+            request.form["vagas"]
+        )
+        return redirect("/")
+    return render_template("editar.html", evento=evento)

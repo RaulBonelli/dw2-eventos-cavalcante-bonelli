@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post">
+  <input name="nome"  value="{{ evento.nome }}"  required>
+  <input name="data"  value="{{ evento.data }}"  required>
+  <input name="local" value="{{ evento.local }}">
+  <input name="vagas" value="{{ evento.vagas }}">
+  <button type="submit">Salvar</button>
+</form>
+</body>
+</html>
