@@ -17,4 +17,14 @@ class Evento(db.Model):             # Aula 7
     data = db.Column(db.String(10),  nullable=False)
     local = db.Column(db.String(120), nullable=False)
     vagas = db.Column(db.Integer, nullable=False)
+
+    # metodo de INSTANCIA: self e este evento
+def para_dicionario(self):
+return {
+"id": self.id,
+"nome": self.nome,
+"data": self.data
+}
+
+
  
